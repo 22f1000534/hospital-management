@@ -34,6 +34,7 @@ ALLOWED_HOSTS = config(
     cast=lambda v: [host.strip() for host in v.split(",")],
 )
 
+AUTH_USER_MODEL = "accounts.User"
 
 # Application definition
 
