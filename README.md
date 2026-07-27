@@ -1,2 +1,21 @@
-# hospital-management
-Hospitals need efficient systems to manage patients, doctors, appointments, and treatments. Currently, many hospitals use manual registers or disconnected software, which makes it difficult to manage records, avoid scheduling conflicts, and track patient history.
+# Healthcare Appointment Platform
+
+A full-stack healthcare platform built with Django REST Framework and React.
+
+## Tech Stack
+
+- Django
+- Django REST Framework
+- PostgreSQL
+- React
+- Vite
+- JWT Authentication
+
+## Features
+
+- Patient registration
+- Doctor profiles
+- Multi-organization support
+- Appointment booking
+- Medical records
+- Reviews and ratings
