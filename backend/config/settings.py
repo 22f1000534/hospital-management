@@ -64,6 +64,7 @@ INSTALLED_APPS = [
     "medical_records",
     "reviews",
     "reports",
+    "master",
 ]
 
 MIDDLEWARE = [
