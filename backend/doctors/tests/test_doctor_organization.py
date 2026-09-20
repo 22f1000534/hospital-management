@@ -1,5 +1,6 @@
 import pytest
 from django.db import IntegrityError
+from django.db.models import ProtectedError
 
 from accounts.models import User
 from doctors.models import Doctor, DoctorOrganization
@@ -201,3 +202,126 @@ def test_doctor_can_belong_to_multiple_organizations():
     )
 
     assert doctor.organization_assignments.count() == 2
+
+@pytest.mark.django_db
+def test_deleting_doctor_deletes_assignment():
+    user = User.objects.create_user(
+        email="doctor@example.com",
+        password="testpassword123",
+        first_name="Anil",
+        last_name="Kumar",
+    )
+
+    doctor = Doctor.objects.create(
+        user=user,
+        medical_registration_number="MED123456",
+        gender="MALE",
+    )
+
+    organization = Organization.objects.create(
+        created_by=user,
+        name="City Hospital",
+        organization_type="HOSPITAL",
+        phone_number="9876543210",
+        email="hospital@example.com",
+        address_line_1="123 Hospital Road",
+        city="Kozhikode",
+        state="Kerala",
+        postal_code="673001",
+    )
+
+    department = Department.objects.create(name="Cardiology")
+
+    assignment = DoctorOrganization.objects.create(
+        doctor=doctor,
+        organization=organization,
+        department=department,
+        joined_on="2025-01-01",
+    )
+
+    assignment_id = assignment.id
+
+    doctor.delete()
+
+    assert not DoctorOrganization.objects.filter(id=assignment_id).exists()
+
+@pytest.mark.django_db
+def test_deleting_organization_deletes_assignment():
+    user = User.objects.create_user(
+        email="doctor@example.com",
+        password="testpassword123",
+        first_name="Anil",
+        last_name="Kumar",
+    )
+
+    doctor = Doctor.objects.create(
+        user=user,
+        medical_registration_number="MED123456",
+        gender="MALE",
+    )
+
+    organization = Organization.objects.create(
+        created_by=user,
+        name="City Hospital",
+        organization_type="HOSPITAL",
+        phone_number="9876543210",
+        email="hospital@example.com",
+        address_line_1="123 Hospital Road",
+        city="Kozhikode",
+        state="Kerala",
+        postal_code="673001",
+    )
+
+    department = Department.objects.create(name="Cardiology")
+
+    assignment = DoctorOrganization.objects.create(
+        doctor=doctor,
+        organization=organization,
+        department=department,
+        joined_on="2025-01-01",
+    )
+
+    assignment_id = assignment.id
+
+    organization.delete()
+
+    assert not DoctorOrganization.objects.filter(id=assignment_id).exists()
+
+@pytest.mark.django_db
+def test_deleting_department_with_assignment_is_protected():
+    user = User.objects.create_user(
+        email="doctor@example.com",
+        password="testpassword123",
+        first_name="Anil",
+        last_name="Kumar",
+    )
+
+    doctor = Doctor.objects.create(
+        user=user,
+        medical_registration_number="MED123456",
+        gender="MALE",
+    )
+
+    organization = Organization.objects.create(
+        created_by=user,
+        name="City Hospital",
+        organization_type="HOSPITAL",
+        phone_number="9876543210",
+        email="hospital@example.com",
+        address_line_1="123 Hospital Road",
+        city="Kozhikode",
+        state="Kerala",
+        postal_code="673001",
+    )
+
+    department = Department.objects.create(name="Cardiology")
+
+    DoctorOrganization.objects.create(
+        doctor=doctor,
+        organization=organization,
+        department=department,
+        joined_on="2025-01-01",
+    )
+
+    with pytest.raises(ProtectedError):
+        department.delete()
