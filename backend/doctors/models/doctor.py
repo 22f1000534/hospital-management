@@ -81,4 +81,5 @@ class Doctor(BaseModel):
         return years
 
     def __str__(self):
-        return self.user.get_full_name() or self.user.email
+        full_name = f"{self.user.first_name} {self.user.last_name}".strip()
+        return full_name or self.user.email
