@@ -92,7 +92,7 @@ def test_medical_history_defaults_to_active():
 
 
 @pytest.mark.django_db
-def test_doctor_cannot_be_deleted_if_medical_history_exists():
+def test_doctor_and_patient_cannot_be_deleted_if_medical_history_exists():
     user = User.objects.create_user(
         email="doctor@example.com",
         password="testpassword123",
@@ -128,3 +128,6 @@ def test_doctor_cannot_be_deleted_if_medical_history_exists():
 
     with pytest.raises(ProtectedError):
         doctor.delete()
+
+    with pytest.raises(ProtectedError):
+        patient.delete()

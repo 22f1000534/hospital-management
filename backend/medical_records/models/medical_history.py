@@ -9,7 +9,7 @@ from patients.models import Patient
 class MedicalHistory(BaseModel):
     patient = models.ForeignKey(
         Patient,
-        on_delete=models.CASCADE,
+        on_delete=models.PROTECT,
         related_name="medical_histories",
     )
 
