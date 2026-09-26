@@ -17,3 +17,25 @@ class HistoryStatus(models.TextChoices):
     RESOLVED = "RESOLVED", "Resolved"
     IN_REMISSION = "IN_REMISSION", "In Remission"
     UNKNOWN = "UNKNOWN", "Unknown"
+
+
+class AllergyType(models.TextChoices):
+    DRUG = "DRUG", "Drug"
+    FOOD = "FOOD", "Food"
+    ENVIRONMENTAL = "ENVIRONMENTAL", "Environmental"
+    CONTACT = "CONTACT", "Contact"
+    OTHER = "OTHER", "Other"
+
+
+class AllergySeverity(models.TextChoices):
+    MILD = "MILD", "Mild"
+    MODERATE = "MODERATE", "Moderate"
+    SEVERE = "SEVERE", "Severe"
+    LIFE_THREATENING = "LIFE_THREATENING", "Life Threatening"
+    UNKNOWN = "UNKNOWN", "Unknown"
+
+
+class AllergyStatus(models.TextChoices):
+    ACTIVE = "ACTIVE", "Active"
+    INACTIVE = "INACTIVE", "Inactive"
+    UNKNOWN = "UNKNOWN", "Unknown"
