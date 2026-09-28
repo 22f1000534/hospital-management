@@ -22,3 +22,9 @@ class TreatmentStatus(models.TextChoices):
     ONGOING = "ONGOING", "Ongoing"
     COMPLETED = "COMPLETED", "Completed"
     DISCONTINUED = "DISCONTINUED", "Discontinued"
+
+
+class PrescriptionStatus(models.TextChoices):
+    ACTIVE = "ACTIVE", "Active"
+    COMPLETED = "COMPLETED", "Completed"
+    DISCONTINUED = "DISCONTINUED", "Discontinued"
