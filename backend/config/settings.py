@@ -66,6 +66,7 @@ INSTALLED_APPS = [
     "reports",
     "master",
     "consultations",
+    "treatments",
 ]
 
 MIDDLEWARE = [
