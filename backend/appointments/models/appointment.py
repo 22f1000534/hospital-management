@@ -1,8 +1,8 @@
 from django.db import models
 
+from appointments.choices import AppointmentStatus
 from common.models import BaseModel
 from doctors.models import DoctorOrganization
-from appointments.choices import AppointmentStatus
 from patients.models import Patient
 
 

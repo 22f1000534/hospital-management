@@ -2,7 +2,8 @@ from django.db import models
 
 from common.models import BaseModel
 from patients.choices import EmergencyContactRelationship
-from patients.models import Patient
+
+from .patient import Patient
 
 
 class EmergencyContact(BaseModel):

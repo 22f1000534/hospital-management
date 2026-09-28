@@ -1,4 +1,4 @@
-from medical_records.models.medical_history import MedicalHistory
 from medical_records.models.allergy import Allergy
+from medical_records.models.medical_history import MedicalHistory
 
-__all__ = ["MedicalHistory", "Allergy"]
+__all__ = ["Allergy", "MedicalHistory"]

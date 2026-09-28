@@ -1,6 +1,7 @@
-from .patient import Patient
 from .emergency_contact import EmergencyContact
+from .patient import Patient
 
-
-__all__ = ["Patient", 
-           "EmergencyContact"]
+__all__ = [
+    "EmergencyContact",
+    "Patient",
+]

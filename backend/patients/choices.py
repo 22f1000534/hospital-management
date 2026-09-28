@@ -1,10 +1,12 @@
 from django.db import models
 
+
 class Gender(models.TextChoices):
     MALE = "MALE", "Male"
     FEMALE = "FEMALE", "Female"
     OTHER = "OTHER", "Other"
     PREFER_NOT_TO_SAY = "PREFER_NOT_TO_SAY", "Prefer not to say"
+
 
 class BloodGroup(models.TextChoices):
     A_POSITIVE = "A+", "A+"
@@ -15,6 +17,7 @@ class BloodGroup(models.TextChoices):
     AB_NEGATIVE = "AB-", "AB-"
     O_POSITIVE = "O+", "O+"
     O_NEGATIVE = "O-", "O-"
+
 
 class EmergencyContactRelationship(models.TextChoices):
     PARENT = "PARENT", "Parent"

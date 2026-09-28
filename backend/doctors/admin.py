@@ -31,6 +31,7 @@ class DoctorAdmin(admin.ModelAdmin):
         "updated_at",
     )
 
+
 @admin.register(DoctorOrganization)
 class DoctorOrganizationAdmin(admin.ModelAdmin):
     list_display = (

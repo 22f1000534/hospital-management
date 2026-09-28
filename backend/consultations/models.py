@@ -2,6 +2,7 @@ from django.db import models
 
 from appointments.models import Appointment
 from common.models import BaseModel
+
 from .choices import ConsultationStatus
 
 

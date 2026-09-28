@@ -3,6 +3,7 @@ from datetime import date, time
 import pytest
 from django.db import IntegrityError
 from django.db.models import ProtectedError
+from django.utils import timezone
 
 from accounts.models import User
 from appointments.models import Appointment
@@ -112,7 +113,7 @@ def test_create_diagnosis(diagnosis_data):
     assert diagnosis.consultation == diagnosis_data["consultation"]
     assert diagnosis.condition == "Hypertension"
     assert diagnosis.diagnosis_type == "PRIMARY"
-    assert diagnosis.diagnosed_on == date.today()
+    assert diagnosis.diagnosed_on == timezone.localdate()
 
 
 @pytest.mark.django_db

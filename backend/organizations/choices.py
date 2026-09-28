@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class OrganizationType(models.TextChoices):
     HOSPITAL = "HOSPITAL", "Hospital"
     CLINIC = "CLINIC", "Clinic"

@@ -3,6 +3,7 @@ from django.db import models
 from common.models import BaseModel
 from consultations.models import Consultation
 from treatments.choices import TreatmentStatus, TreatmentType
+
 from .diagnosis import Diagnosis
 
 

@@ -1,7 +1,5 @@
 from django.db import models
 
-from django.db import models
-
 
 class HistoryType(models.TextChoices):
     CHRONIC_CONDITION = "CHRONIC_CONDITION", "Chronic Condition"

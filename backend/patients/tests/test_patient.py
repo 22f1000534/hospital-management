@@ -1,5 +1,6 @@
-import pytest
 from datetime import date
+
+import pytest
 from django.db import IntegrityError
 
 from accounts.models import User

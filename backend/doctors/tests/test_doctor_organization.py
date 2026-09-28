@@ -100,6 +100,7 @@ def test_duplicate_doctor_organization_department_not_allowed():
             joined_on="2025-02-01",
         )
 
+
 @pytest.mark.django_db
 def test_doctor_can_belong_to_multiple_departments():
     user = User.objects.create_user(
@@ -145,6 +146,7 @@ def test_doctor_can_belong_to_multiple_departments():
     )
 
     assert doctor.organization_assignments.count() == 2
+
 
 @pytest.mark.django_db
 def test_doctor_can_belong_to_multiple_organizations():
@@ -203,6 +205,7 @@ def test_doctor_can_belong_to_multiple_organizations():
 
     assert doctor.organization_assignments.count() == 2
 
+
 @pytest.mark.django_db
 def test_deleting_doctor_deletes_assignment():
     user = User.objects.create_user(
@@ -245,6 +248,7 @@ def test_deleting_doctor_deletes_assignment():
 
     assert not DoctorOrganization.objects.filter(id=assignment_id).exists()
 
+
 @pytest.mark.django_db
 def test_deleting_organization_deletes_assignment():
     user = User.objects.create_user(
@@ -286,6 +290,7 @@ def test_deleting_organization_deletes_assignment():
     organization.delete()
 
     assert not DoctorOrganization.objects.filter(id=assignment_id).exists()
+
 
 @pytest.mark.django_db
 def test_deleting_department_with_assignment_is_protected():

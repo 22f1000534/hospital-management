@@ -10,7 +10,7 @@ from doctors.models import Doctor, DoctorOrganization
 from master.models import Department
 from organizations.models import Organization
 from patients.models import Patient
-from treatments.models import Treatment, Prescription
+from treatments.models import Prescription, Treatment
 
 
 @pytest.fixture

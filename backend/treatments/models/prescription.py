@@ -2,6 +2,7 @@ from django.db import models
 
 from common.models import BaseModel
 from treatments.choices import PrescriptionStatus
+
 from .treatment import Treatment
 
 

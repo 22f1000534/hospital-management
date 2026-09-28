@@ -1,5 +1,5 @@
 from .diagnosis import Diagnosis
-from .treatment import Treatment
 from .prescription import Prescription
+from .treatment import Treatment
 
-__all__ = ["Diagnosis", "Treatment", "Prescription"]
+__all__ = ["Diagnosis", "Prescription", "Treatment"]

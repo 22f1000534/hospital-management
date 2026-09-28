@@ -37,4 +37,3 @@ class UserManager(BaseUserManager):
             password,
             **extra_fields,
         )
-    

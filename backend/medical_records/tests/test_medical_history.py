@@ -1,11 +1,13 @@
-import pytest
 from datetime import date
+
+import pytest
+from django.db.models.deletion import ProtectedError
 
 from accounts.models import User
 from doctors.models import Doctor
 from medical_records.models import MedicalHistory
 from patients.models import Patient
-from django.db.models.deletion import ProtectedError
+
 
 @pytest.mark.django_db
 def test_create_medical_history():

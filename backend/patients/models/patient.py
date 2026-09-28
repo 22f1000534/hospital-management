@@ -1,8 +1,8 @@
 from django.conf import settings
 from django.db import models
 
-from patients.choices import Gender, BloodGroup
 from common.models import BaseModel
+from patients.choices import BloodGroup, Gender
 
 
 class Patient(BaseModel):

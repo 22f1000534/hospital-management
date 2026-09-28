@@ -132,7 +132,7 @@ def test_patient_cannot_be_deleted_if_appointment_exists():
         gender="MALE",
     )
 
-    appointment = Appointment.objects.create(
+    Appointment.objects.create(
         patient=patient,
         doctor_organization=doctor_organization,
         appointment_date=date(2026, 10, 5),

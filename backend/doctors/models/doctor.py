@@ -1,10 +1,8 @@
-from datetime import date
-
 from django.conf import settings
 from django.db import models
+from django.utils import timezone
 
 from common.models import BaseModel
-
 from doctors.choices import Gender
 
 
@@ -65,7 +63,7 @@ class Doctor(BaseModel):
         if not self.practice_started_on:
             return None
 
-        today = date.today()
+        today = timezone.localdate()
 
         years = today.year - self.practice_started_on.year
 

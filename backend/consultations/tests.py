@@ -6,11 +6,11 @@ from django.db.models import ProtectedError
 
 from accounts.models import User
 from appointments.models import Appointment
+from consultations.models import Consultation
 from doctors.models import Doctor, DoctorOrganization
 from master.models import Department
 from organizations.models import Organization
 from patients.models import Patient
-from consultations.models import Consultation
 
 
 @pytest.fixture
