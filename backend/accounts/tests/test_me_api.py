@@ -67,7 +67,7 @@ def test_me_rejects_refresh_token(api_client, user):
     refresh_token = RefreshToken.for_user(user)
 
     api_client.credentials(
-        HTTP_AUTHORIZATION=f"Bearer {str(refresh_token)}",
+        HTTP_AUTHORIZATION=f"Bearer {refresh_token!s}",
     )
 
     response = api_client.get("/api/auth/me/")

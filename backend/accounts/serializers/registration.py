@@ -1,9 +1,8 @@
 from django.db import transaction
 from rest_framework import serializers
 
-from patients.models import Patient
-
 from accounts.models import User
+from patients.models import Patient
 
 
 class RegistrationSerializer(serializers.Serializer):

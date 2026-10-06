@@ -1,6 +1,6 @@
 import pytest
-from rest_framework.test import APIRequestFactory
 from django.contrib.auth.models import AnonymousUser
+from rest_framework.test import APIRequestFactory
 
 from accounts.models import User
 from accounts.permissions.roles import (
